@@ -6,8 +6,8 @@ import wiki from "./files/wiki.png";
 class App extends React.Component{
 
   state = {
-    title:"No search results",
-    data:[]
+    title:"No search results", //This line is for the word that was searched
+    data:[] //This is for the final results that will be displayed
   }
 
   handleSubmit = (e) => {
@@ -21,11 +21,22 @@ class App extends React.Component{
       return data.json()
     })
     .then(response => {
+
+      //We need to loop through the response to 
+      //obtain the title,description and link
+      //the response fro the api has four arrays
+      //response[0] is the word that was searched
+      //response[1] is the title of the responses
+      //response[2] is the description of the responses
+      //response[3] is the link of the responses
+      //so we loop through 1,2,3 to create an object for each response
+
       let results=[]
       for (let i = 0; i < response[1].length; i++) {
            results.push({title:response[1][i],description:response[2][i],link:response[3][i]})     
       }
         
+      //we set the search word in state and also the final data to displayaeeee
       this.setState({title:response[0], data:results})
         
     })
@@ -36,20 +47,16 @@ class App extends React.Component{
 
 
   }
-      // results.innerHTML = `<li>${response[1]}</li>`;
-      // results.innerHTML = `<li>${response}</li>`;
-      // console.log(results.innerHTML = `<li>${response}</li>`);
-    // })
-    // .catch((error) => {
-    //   console.log("errorrororo" + error)
-    // })
-    // alert(userSearch);
 
   makelist = () => {
+    //this function picks up the data from state and loop over
+    //each Results component and pass data as props
+
     let results = this.state.data.map((data,key) => {
       return <Results key={key} data={data}/>
     })
 
+    //finally the Results Component is returned
     return results;
   }
 
@@ -68,7 +75,7 @@ class App extends React.Component{
 
         <div className="container text-center" >
               You Searched: {this.state.title.toLocaleUpperCase()}
-              
+              {/* Calling the makelist function is like calling each Result component at a time to display each one */}
               { this.makelist() }
         </div>
         <div className="text-center mt-5">
