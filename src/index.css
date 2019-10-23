@@ -1,13 +1,78 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: lobster,-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:#8946aa;
+  color:white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.italic{
+  font-style:italic;
+}
+
+.wikiImg{
+  height:200px;
+}
+
+#searchInfo{
+  margin-top:40px;
+}
+input[type=text] {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 150px;
+  border-radius:5px;
+  padding: 8px 15px 8px 30px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+.btn{
+  padding:10px;
+  color:white;
+  cursor:pointer;
+  border-radius:7px;
+  width:100px;
+  /* padding:8px; */
+  margin-bottom:3px;
+}
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+  width: 20%;
+}
+
+button{
+  padding:10px;
+  background-color:#5c52ec;
+  color:rgb(255, 255, 255);
+  cursor:pointer;
+  border-radius:3px;
+  font-family: 'Mukta Mahee', sans-serif;
+}
+button:hover{
+  background-color:#5d2368;
+}
+
+a{
+  color:white;
+  text-decoration:none;
+}
+a:hover{
+  color:white;
+  text-decoration:underline;
+}
+a:link:{
+  text-decoration:none;
+}
+a:visited{
+  text-decoration:none;
+}
+p{ 
+  font-family: 'Mukta Mahee', sans-serif;
+} 
